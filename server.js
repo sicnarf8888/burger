@@ -2,6 +2,7 @@
 var express = require("express");
 var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
+require('dotenv').config()
 
 // define port and define app as express server
 var PORT = process.env.PORT || 3380;

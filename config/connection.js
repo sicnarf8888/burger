@@ -1,4 +1,5 @@
 // require mysql npm package
+require('dotenv').config()
 var mysql = require("mysql");
 var connection;
 
@@ -7,10 +8,10 @@ if (process.env.JAWSDB_URL) {
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
 	connection = mysql.createConnection({
-		host: "e11wl4mksauxgu1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-		user: "hgefiprfqg2q7hjv",
-		password: "wdemy8qs871mspro",
-		database: "qps4udxyl5ucm7t4"
+		host: process.env.host, 
+		user: process.env.user,
+		password: process.env.password,
+		database: process.env.database,
 	});
 };
 
