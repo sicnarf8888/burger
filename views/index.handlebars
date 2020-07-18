@@ -1,0 +1,71 @@
+{{!-- main container --}}
+<div class="container">
+
+	{{!-- title row --}}
+	<div class="row title-row">
+		{{!-- full width on any screen size --}}
+		<div class="col-xs-12 text-center">
+			{{!-- picture at top, then main header --}}
+			<img src="/assets/images/burger.jpg" alt="burger" class="img-responsive">
+			<h1>Eat-Da-Burger!</h1>
+		</div>
+	{{!-- close title row --}}
+	</div>
+
+	{{!-- burger listing row - eaten or devoured --}}
+	<div class="row burger-row">
+		{{!-- burgers to eat column --}}
+		<div class="col-xs-6 text-center">
+			{{!-- sub row --}}
+			<div class="row">
+				<h2>Burgers on da menu</h2>
+				{{!-- handlebars data - for each burger unless they're already devoured --}}
+				{{#each burgers}}
+				{{#unless this.devoured}}
+				{{!-- burgers text sub column --}}
+				<div class="col-xs-7">
+					{{!-- add a paragraph for the burger --}}
+					<p class="burgers-to-eat">{{this.id}}. {{this.burger_name}}</p>
+				</div>
+				{{!-- devour button sub column --}}
+				<div class="col-xs-5">
+					{{!-- add a button to devour with data-id equal to the burger id --}}
+					<button type="submit" class="btn btn-default devour-button" data-id="{{this.id}}">Devour-Da-Burger</button>
+				</div>
+				{{!-- close handlebars --}}
+				{{/unless}}
+				{{/each}}
+			</div>
+		</div>
+		
+		{{!-- burgers already eaten on the other side --}}
+		<div class="col-xs-6 text-center">
+			<h2>Burgers in da belly</h2>
+			{{!-- for all burgers which have been devoured --}}
+			{{#each burgers}}
+			{{#if this.devoured}}
+				{{!-- add in paragraphs for all devoured burgers --}}
+				<p class="devoured-burgers">{{this.id}}. {{this.burger_name}}</p>
+			{{/if}}
+			{{/each}}
+		</div>
+	{{!-- close burger listing row --}}
+	</div>
+	
+	{{!-- burger form row --}}
+	<div class="row burger-form-row">
+		{{!-- full width of window --}}
+		<div class="col-xs-12 text-center">
+			{{!-- form which posts data to /burgers/new --}}
+			<form action="/burgers/new" method="POST" class="create-form">
+				{{!-- input box, submit button --}}
+				<input type="text" class="form-control" name="burger_name" id="new-burger-input">
+				<button type="submit" class="btn btn-default" id="new-burger-button">Add-Da-Burger</button>
+			</form>
+			<p id="add-burger-text">Add in your own custom burger that you'd like to eat!</p>
+		</div>
+	{{!-- close burger form row --}}
+	</div>
+
+{{!-- close container --}}
+</div>
