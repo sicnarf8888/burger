@@ -5,7 +5,6 @@ https://burger-101.herokuapp.com/
 Eat-Da-Burger!
 Devour a virtual burger and add your own burger for others to devour as well.
 
-Motivation
 To create an app which utilizes a SQL database, an ORM, and follows the MVC design pattern. This burger logger is deployed on Heroku with JawsDB supporting the data.
 
 # Tech/framework used
